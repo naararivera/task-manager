@@ -1,0 +1,27 @@
+<h2 class="mb-4">{{ title }}</h2>
+
+<div class="container mt-4 p-4 border rounded shadow-sm bg-light">
+  <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+    <div class="form-group mb-3">
+      <label for="taskName" class="form-label">Task description</label>
+      <input type="text" class="form-control" id="taskName" formControlName="taskName" placeholder="Enter a task">
+      
+      <div class="text-danger mt-1" *ngIf="taskForm.get('taskName')?.touched && taskForm.get('taskName')?.invalid">
+        <div *ngIf="taskForm.get('taskName')?.errors?.['required']">You must type in something</div>
+        <div *ngIf="taskForm.get('taskName')?.errors?.['minlength']">At least type in 3 characters</div>
+        <div *ngIf="taskForm.get('taskName')?.errors?.['notOnlySpaces']">It cannot contain only spaces</div>
+      </div>
+    </div>
+
+
+    <button class="btn btn-success" type="submit" [disabled]="taskForm.invalid">
+      Add <i class="bi bi-plus"></i>
+    </button>
+  </form>
+  
+  <!-- Buttons for going back home or show the tasks list
+  <div class="mt-4 d-flex gap-2">
+    <button class="btn btn-outline-primary" routerLink="/">Home</button>
+    <a class="btn btn-outline-secondary" routerLink="/tasks-list">Tasks List</a>
+  </div>-->
+</div>
