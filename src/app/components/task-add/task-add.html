@@ -1,6 +1,6 @@
-<h2 class="mb-4">{{ title }}</h2>
 
 <div class="container mt-4 p-4 border rounded shadow-sm bg-light">
+  <h2 class="mb-4">{{ title }}</h2>
   <form [formGroup]="taskForm" (ngSubmit)="addTask()">
     <div class="form-group mb-3">
       <label for="taskName" class="form-label">Task description</label>
@@ -19,9 +19,9 @@
     </button>
   </form>
   
-  <!-- Buttons for going back home or show the tasks list
+  <!--Buttons for going back home or show the tasks list
   <div class="mt-4 d-flex gap-2">
     <button class="btn btn-outline-primary" routerLink="/">Home</button>
-    <a class="btn btn-outline-secondary" routerLink="/tasks-list">Tasks List</a>
+    <button class="btn btn-outline-secondary" routerLink="/tasks-list">Tasks List</button>
   </div>-->
 </div>
