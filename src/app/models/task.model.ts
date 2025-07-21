@@ -1,6 +1,6 @@
 export interface ITask{
     id?: number;
-    name: string;
-    date: Date;
+    description: string;
+    date?: Date;
     completed: boolean;
 }
