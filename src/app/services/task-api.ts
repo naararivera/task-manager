@@ -10,7 +10,7 @@ export interface Task {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskApiService {
   private apiUrl = 'http://localhost:8080/api/tasks';

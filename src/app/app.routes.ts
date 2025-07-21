@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: 'add-task', component: TaskAdd },
   { path: 'tasks-list', component: TaskList },
   { path: '', component: HomeComponent },
-  { path: '**', redirectTo: '/add-task' }
+  { path: '**', redirectTo: '/add-task' },
 ];

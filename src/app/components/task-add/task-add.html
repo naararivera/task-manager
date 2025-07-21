@@ -12,25 +12,25 @@
         placeholder="Enter a task"
       />
 
-      <div class="text-danger mt-1" *ngIf="taskForm.get('description')?.touched && taskForm.get('description')?.invalid">
-        <div *ngIf="taskForm.get('description')?.errors?.['required']">You must type in something</div>
-        <div *ngIf="taskForm.get('description')?.errors?.['minlength']">At least type in 3 characters</div>
-        <div *ngIf="taskForm.get('description')?.errors?.['notOnlySpaces']">It cannot contain only spaces</div>
+      <div
+        class="text-danger mt-1"
+        *ngIf="
+          taskForm.get('description')?.touched &&
+          taskForm.get('description')?.invalid
+        "
+      >
+        <div *ngIf="taskForm.get('description')?.errors?.['required']">
+          You must type in something
+        </div>
+        <div *ngIf="taskForm.get('description')?.errors?.['minlength']">
+          At least type in 3 characters
+        </div>
+        <div *ngIf="taskForm.get('description')?.errors?.['notOnlySpaces']">
+          It cannot contain only spaces
+        </div>
       </div>
     </div>
 
-    <!--<div class="form-check mb-3">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="completed"
-        formControlName="completed"
-      />
-      <label class="form-check-label" for="completed">
-        Mark as completed
-      </label>
-    </div>
--->
     <button class="btn btn-success" type="submit" [disabled]="taskForm.invalid">
       Add <i class="bi bi-plus"></i>
     </button>
@@ -39,6 +39,9 @@
   <!-- Botones para navegación -->
   <div class="mt-4 d-flex gap-2">
     <button class="btn btn-outline-primary" routerLink="/">Home</button>
-    <button class="btn btn-outline-secondary" routerLink="/tasks-list">Tasks List</button>
+    <button class="btn btn-outline-secondary" routerLink="/tasks-list">
+      Tasks List
+    </button>
   </div>
-<!--</div>-->
+  <!--</div>-->
+</div>

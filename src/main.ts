@@ -5,7 +5,5 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(App, {
-  providers: [provideRouter(routes),
-     provideHttpClient()
-  ]
+  providers: [provideRouter(routes), provideHttpClient()],
 });

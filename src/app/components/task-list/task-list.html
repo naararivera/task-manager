@@ -1,33 +1,74 @@
 <div class="container mt-4 p-4 border rounded shadow-sm bg-light">
-
   <h2 class="mb-4">{{ title }}</h2>
 
   <div class="row fw-bold mb-2">
     <div class="col-4">Task</div>
     <div class="col-4">Completed</div>
-    <div class="col-4">Delete</div>
+    <div class="col-4">Actions</div>
   </div>
 
-  <div class="row align-items-center mb-2" *ngFor="let task of tasksList; let i = index">
+  <div
+    class="row align-items-center mb-2"
+    *ngFor="let task of tasksList; let i = index"
+  >
+    <!-- Description -->
     <div class="col-4">
-      <span [ngClass]="{'text-decoration-line-through text-secondary': task.completed}">
+      <input
+        *ngIf="editedTaskIndex === i"
+        [(ngModel)]="task.description"
+        class="form-control"
+      />
+      <span
+        *ngIf="editedTaskIndex !== i"
+        [ngClass]="{
+          'text-decoration-line-through text-secondary': task.completed
+        }"
+      >
         {{ task.description }}
       </span>
     </div>
+
+    <!-- Checkbox -->
     <div class="col-4">
-      <input type="checkbox" class="form-check-input" (click)="completeTask(i)" [checked]="task.completed">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        (click)="completeTask(i)"
+        [checked]="task.completed"
+      />
     </div>
-    <div class="col-4">
-      <button class="btn btn-sm btn-danger" (click)="deleteTask(i)">
+
+    <!-- Actions: edit / save + delete -->
+    <div class="col-4 d-flex gap-2">
+      <button
+        *ngIf="editedTaskIndex === i"
+        class="btn btn-sm btn-success"
+        (click)="saveTask(i)"
+      >
+        <i class="bi bi-check-lg"></i>
+      </button>
+
+      <button
+        *ngIf="editedTaskIndex !== i"
+        class="btn btn-sm btn-outline-secondary"
+        (click)="editTask(i)"
+      >
+        <i class="bi bi-pencil"></i>
+      </button>
+
+      <button
+        class="btn btn-sm btn-danger"
+        (click)="deleteTask(i)"
+      >
         <i class="bi bi-trash3"></i>
       </button>
     </div>
   </div>
 
-  <!-- Buttons for going back home or show the tasks list-->  
+  <!-- Navigation buttons -->
   <div class="mt-4 d-flex gap-2">
     <a class="btn btn-outline-primary" routerLink="/">Home</a>
     <a class="btn btn-outline-success" routerLink="/add-task">Add New Task</a>
   </div>
-
 </div>
+

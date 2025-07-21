@@ -8,11 +8,9 @@ import { ITask } from './models/task.model';
 @Component({
   selector: 'app-task-manager',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    ReactiveFormsModule],
+  imports: [RouterOutlet, ReactiveFormsModule],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrls: ['./app.css'],
 })
 export class App {
   title = 'Task Manager';

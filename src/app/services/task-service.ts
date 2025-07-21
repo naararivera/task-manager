@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ITask } from '../models/task.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
   private tasksSubject: BehaviorSubject<ITask[]>;
@@ -37,13 +37,15 @@ export class TaskService {
   }
 
   deleteTask(id: number): void {
-    const updatedTasks = this.tasksSubject.value.filter(task => task.id !== id);
+    const updatedTasks = this.tasksSubject.value.filter(
+      (task) => task.id !== id
+    );
     this.tasksSubject.next(updatedTasks);
     this.saveToLocalStorage();
   }
 
   toggleTaskStatus(id: number): void {
-    const updatedTasks = this.tasksSubject.value.map(task => {
+    const updatedTasks = this.tasksSubject.value.map((task) => {
       if (task.id === id) {
         return { ...task, completed: !task.completed };
       }
@@ -53,5 +55,3 @@ export class TaskService {
     this.saveToLocalStorage();
   }
 }
-
-
